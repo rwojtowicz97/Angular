@@ -7,19 +7,20 @@ import { HttpClient } from "@angular/common/http";
 })
 export class PaymentDetailService {
   formData:PaymentDetail;
-  //  = {
-  //   CVV: null,
-  //   CardNumber: null,
-  //   CardOwnerName: null,
-  //   ExpirationDate: null,
-  //   PMId: null
-  // }
+
   readonly rootURL = 'http://localhost:65379/api';
+  list: PaymentDetail[];
 
   constructor(private http: HttpClient) { }
 
   postPaymentDetail(formData: PaymentDetail){
     return this.http.post(this.rootURL + '/PaymentDetail', formData);
-
   }
+
+  getPaymentList(){
+    this.http.get(this.rootURL+'/PaymentDetail')
+    .toPromise()
+    .then(res => this.list = res as PaymentDetail[]);
+  }
+
 }

@@ -9,9 +9,17 @@ input.ng-valid{
 
 .green-icon {
     color: green;
-    
+
 }
 
 .red-icon {
     color: red;
+}
+
+#toast-container > div {
+  opacity: 1;
+}
+
+.jumbotron {
+  background-color: #c9d7f8;
 }
