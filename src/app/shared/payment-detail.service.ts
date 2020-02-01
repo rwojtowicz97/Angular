@@ -13,8 +13,16 @@ export class PaymentDetailService {
 
   constructor(private http: HttpClient) { }
 
-  postPaymentDetail(formData: PaymentDetail){
-    return this.http.post(this.rootURL + '/PaymentDetail', formData);
+  postPaymentDetail(){
+    return this.http.post(this.rootURL + '/PaymentDetail', this.formData);
+  }
+
+  putPaymentDetail(){
+    return this.http.put(this.rootURL + '/PaymentDetail/'+ this.formData.PMId, this.formData);
+  }
+
+  deletePaymentDetail(id){
+    return this.http.delete(this.rootURL + '/PaymentDetail/'+ id);
   }
 
   getPaymentList(){
